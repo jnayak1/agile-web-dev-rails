@@ -6,4 +6,6 @@ class Product < ApplicationRecord
 		with: %r{\.(gif|jpg|png)\Z}i,
 		message: 'must be a URL for GIF, JPG, or PNG'
 	}
+	validates :title, length: { minimum: 10,
+		too_short: "%{count} character is the minimum required" }
 end
