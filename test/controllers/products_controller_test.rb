@@ -57,6 +57,10 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to products_url
   end
 
+  test "should show correct number of products" do
+    assert_equal(2, carts(:two).line_items.distinct.count(:product_id))
+  end
+
 
   test "should destroy product" do
     assert_difference('Product.count', -1) do
